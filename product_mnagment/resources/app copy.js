@@ -3,6 +3,8 @@ import { createApp, markRaw } from 'vue';
 import App from './App.vue'; 
 import router from './routes'
 import { createPinia } from 'pinia';
+import Toast from 'vue-toastification';
+import 'vue-toastification/dist/index.css';
 const app = createApp(App);
 const pinia = createPinia();
 pinia.use(({store}) =>
