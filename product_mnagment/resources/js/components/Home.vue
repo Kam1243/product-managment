@@ -1,7 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useProductStore } from '@/stores/productStore';
-
+import { useProductStore } from '../stores/productStore.js';
 const store = useProductStore();
 
 const formTitle = ref('Create Product');

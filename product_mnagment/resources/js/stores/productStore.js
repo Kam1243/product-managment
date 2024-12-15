@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
-import { useToast } from 'vue-toastification';
 export const useProductStore = defineStore('product',{
     state : () => ({
         form_data : 
@@ -37,7 +36,7 @@ export const useProductStore = defineStore('product',{
     actions: {
         login()
         {
-            const toast = useToast(); 
+            // const toast = useToast(); 
             this.form_data.device_name = 'browsers';
             axios.post('http://localhost:8000/api/login', this.form_data).then((response) => {
                 this.form_data.email = this.form_data.password = null;
@@ -57,7 +56,7 @@ export const useProductStore = defineStore('product',{
         registerUser()
         {
 
-            const toast = useToast(); 
+            // const toast = useToast(); 
             axios.post('http://localhost:8000/api/register', this.form_data).then((response) => {
                 this.form_data.name = this.form_data.email = this.form_data.password = this.form_data.password_confirmation = null;
                 this.errors = [];

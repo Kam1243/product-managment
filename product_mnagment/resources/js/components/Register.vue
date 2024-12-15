@@ -1,6 +1,8 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
+
+import { useProductStore } from '../stores/productStore.js';
 const store = useProductStore();
 </script>
 
