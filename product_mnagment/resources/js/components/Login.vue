@@ -1,41 +1,27 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
-import { useProductStore } from '@/stores/productStore';
-const store = useProductStore();
+
+ 
+
+const store={useProductStore};
 </script>
 
 <template>
   <div class="container d-flex justify-content-center align-items-center vh-100">
-   
-    <div class="card shadow-lg p-4" style="max-width: 500px; width: 100%;">
+    
+    <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%;">
       
       <div class="card-body">
         
         <div class="mb-3">
-          <label for="name" class="form-label">Full Name</label>
+          <label for="email" class="form-label">Email</label>
           <input
             type="text"
             class="form-control"
-            id="name"
-            v-model="store.form_data.name"
-            placeholder="Enter your full name"
-            required
-          />
-          <p v-if="store.errors.name" class="text-danger mt-2">
-            <span v-for="(error, index) in store.errors.name" :key="index">{{ error }}<br /></span>
-          </p>
-        </div>
-
-       
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input
-            type="email"
-            class="form-control"
             id="email"
             v-model="store.form_data.email"
-            placeholder="Enter your email address"
+            placeholder="Enter your email"
             required
           />
           <p v-if="store.errors.email" class="text-danger mt-2">
@@ -60,30 +46,13 @@ const store = useProductStore();
         </div>
 
         
-        <div class="mb-3">
-          <label for="password_confirmation" class="form-label">Confirm Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="password_confirmation"
-            v-model="store.form_data.password_confirmation"
-            placeholder="Confirm your password"
-            required
-          />
-          <p v-if="store.errors.password_confirmation" class="text-danger mt-2">
-            <span v-for="(error, index) in store.errors.password_confirmation" :key="index">{{ error }}<br /></span>
-          </p>
-        </div>
-
-       
         <div class="d-grid gap-2 mb-3">
-          <button class="btn btn-primary" @click.prevent="store.registerUser()">Register</button>
+          <button class="btn btn-primary" @click="store.login()">Login</button>
         </div>
 
-       
         <div class="text-center">
-          <router-link to="/login" class="text-decoration-none">
-            <small>Already have an account? Login here</small>
+          <router-link to="/register" class="text-decoration-none">
+            <small>Create a New Account</small>
           </router-link>
         </div>
       </div>
